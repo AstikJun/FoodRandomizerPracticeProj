@@ -15,24 +15,24 @@ public class GenerateRandomDishController {
     @Autowired
     private GenerateService generateService;
 
-//    @GetMapping
-//    public ResponseEntity<String> deleteDishById(@RequestBody Generate generate) {
-//        try {
-//            this.generateService.generate(generate);
-//            return new ResponseEntity<>("Successfully generated", HttpStatus.OK);
-//        } catch (Exception e) {
-//            System.out.println(e.toString());
-//            return new ResponseEntity<>("Not deleted", HttpStatus.BAD_REQUEST);
-//        }
-//    }
-    @PostMapping
-    public ResponseEntity<Dish> generateDish(@RequestBody Generate generate) {
-        Dish dish = this.generateService.generate(generate);
+    @GetMapping
+    public ResponseEntity<String> deleteDishById(@RequestBody Generate generate) {
         try {
-            return new ResponseEntity<>(dish, HttpStatus.OK);
+            this.generateService.generate(generate);
+            return new ResponseEntity<>("Successfully generated", HttpStatus.OK);
         } catch (Exception e) {
             System.out.println(e.toString());
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("Not deleted", HttpStatus.BAD_REQUEST);
         }
     }
+//    @PostMapping
+//    public ResponseEntity<Dish> generateDish(@RequestBody Generate generate) {
+//        Dish dish = this.generateService.generate(generate);
+//        try {
+//            return new ResponseEntity<>(dish, HttpStatus.OK);
+//        } catch (Exception e) {
+//            System.out.println(e.toString());
+//            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//        }
+//    }
 }
